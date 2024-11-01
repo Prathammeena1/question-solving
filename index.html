@@ -26,37 +26,36 @@
         border-radius: 10px;
         color: rgb(176, 176, 176);
         font-weight: 400;
-        font-family:montserrat;
+        font-family: montserrat;
         font-size: 20px;
         text-transform: capitalize;
         margin-left: 10px;
-        transition: all ease .3s;
+        transition: all ease 0.3s;
       }
       .cyan-btn-hover {
         border: 1px solid rgb(14 165 233);
         color: rgb(14 165 233);
-    }
-    .cyan-btn-click {
+      }
+      .cyan-btn-click {
         background: rgb(14 165 233);
         border: 1px solid rgb(14 165 233);
         color: #222;
-        rotate:-10deg
+        rotate: -10deg;
       }
       .purple-btn-hover {
         border: 1px solid rgb(255, 175, 224);
         color: rgb(255, 175, 224);
-    }
-    .purple-btn-click {
-          border: 1px solid rgb(255, 175, 224);
+      }
+      .purple-btn-click {
+        border: 1px solid rgb(255, 175, 224);
         background: rgb(255, 175, 224);
         color: #222;
-        rotate:10deg
+        rotate: 10deg;
       }
-
     </style>
   </head>
   <body>
-    <div class="">
+    <div>
       <button class="btn purple-btn">Js</button>
       <button class="btn cyan-btn">React</button>
       <button class="btn purple-btn">Node</button>
@@ -67,18 +66,17 @@
   </body>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
   <script>
-
-      
-      function newEffect(className) {
-          const btns = document.querySelectorAll(`.${className}`);
-          btns.forEach((btn) => {
-              gsap.from(btn,{
-                  y:20  ,
-                  duration:2,
-                  rotate:Math.random() *100 < 50 ? "5deg" : "-5deg",
-                  yoyo:true,
-                  repeat:-1,
-              })
+    function newEffect(className) {
+      const btns = document.querySelectorAll(`.${className}`);
+      console.log(btns);
+      btns.forEach((btn) => {
+        gsap.from(btn, {
+          y: 20,
+          duration: 2,
+          rotate: Math.random() * 100 < 50 ? "5deg" : "-5deg",
+          yoyo: true,
+          repeat: -1,
+        });
         btn.addEventListener("mouseover", () => {
           btns.forEach((e) => {
             e.classList.add(`${className}-hover`);
@@ -86,14 +84,13 @@
         });
         let clicked = false;
         btn.addEventListener("click", () => {
-            if(!clicked){
-                btn.classList.add(`${className}-click`);
-                clicked = true;
-            }
-            else{
-                btn.classList.remove(`${className}-click`);
-                clicked = false;
-            }
+          if (!clicked) {
+            btn.classList.add(`${className}-click`);
+            clicked = true;
+          } else {
+            btn.classList.remove(`${className}-click`);
+            clicked = false;
+          }
         });
         btn.addEventListener("mouseleave", () => {
           btns.forEach((e) => {
